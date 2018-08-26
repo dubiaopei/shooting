@@ -1,0 +1,14 @@
+server:
+  port: 8001
+
+eureka:
+  instance:
+    hostname: localhost  #eureka服务端的实例名称
+  server:
+    enable-self-preservation: true
+  client:
+    register-with-eureka: false # false 表示不向注册中心注册自己
+    fetch-registry: false   # false 表示自己就是注册中心,职责是维护服务实例,并不需要检索服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+       #设置与Eureka Server交互的地址,查询和注册服务都需要依赖这个地址(可以多个eureka服务用逗号隔开)

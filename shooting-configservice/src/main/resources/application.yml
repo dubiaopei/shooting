@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: shooting-configservice
+
+server:
+  port: 8080
+
+eureka:
+  instance:
+    instance-id: microservicecloud-configservice8001
+    hostname: localhost
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8001/eureka/
+
+
+
+logging:
+  file: ${spring.application.name}.log
+
+info:
+  app.name: shooting-microservicecloud
+  company.name: www.jd.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
